@@ -18,7 +18,7 @@ class ExplorePage extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.home),
               onPressed: () {
-                Navigator.of(context).pushNamed(HomePage.tag);
+                //Navigator.of(context).pushNamed(HomePage.tag);
               },
             ),
             IconButton(
