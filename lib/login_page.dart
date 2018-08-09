@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
           minWidth: 200.0,
           height: 42.0,
           onPressed: () {
-            Navigator.of(context).pushNamed(HomePage.tag);
+            Navigator.of(context).pushReplacementNamed(HomePage.tag);
           },
           color: Color(0xFF88e888),
           child: Text('Log In', style: TextStyle(color: Colors.white)),
