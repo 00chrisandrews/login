@@ -1,0 +1,33 @@
+name: login
+description: A new Flutter project.
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/logo.png
+    - assets/eva.png
+    - assets/fern.png
+    - assets/image1.png
+    - assets/image2.png
+    - assets/image3.png
+    - assets/image4.png
+    - assets/image5.png
+    - assets/image6.png
+    - assets/image7.png
+    - assets/image8.png
+    - assets/image9.png
+    - assets/image10.png
+    
+  fonts:
+      - family: Potra
+        fonts:
+          - asset: assets/Potra.ttf
