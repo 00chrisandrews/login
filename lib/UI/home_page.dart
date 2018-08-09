@@ -185,7 +185,7 @@ class HomePage extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.explore),
             onPressed: () {
-              Navigator.of(context).pushNamed(ExplorePage.tag);
+              Navigator.of(context).pushReplacementNamed(ExplorePage.tag);
             },
           )
         ],

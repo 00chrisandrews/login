@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'login_page.dart';
-import 'package:login/home_page.dart';
-import 'package:login/explore_page.dart';
+import 'UI/login_page.dart';
+import 'package:login/UI/home_page.dart';
+import 'package:login/UI/explore_page.dart';
+import 'UI/recycle_item_list.dart';
 
 //import 'package:login/new_page.dart';
 //import 'home_page.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
     LoginPage.tag: (context) => LoginPage(),
     HomePage.tag: (context) => HomePage(),
     ExplorePage.tag: (context) => ExplorePage(),
+    RecyleItemsPage.tag: (context) => RecyleItemsPage(),
     // HomePage.tag: (context) => HomePage(),
     // NewPage.tag: (context) => NewPage(),
     // ListPage.tag: (context) => ListPage(),

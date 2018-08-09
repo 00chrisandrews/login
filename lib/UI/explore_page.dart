@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login/UI/home_page.dart';
+import 'package:login/UI/recycle_item_list.dart';
 
 class ExplorePage extends StatelessWidget {
   static String tag = 'ExplorePage';
@@ -23,12 +24,16 @@ class ExplorePage extends StatelessWidget {
             ),
             IconButton(
               icon: Icon(Icons.explore),
+              onPressed: () {},
             )
           ],
         ),
         body: ListView(
           children: <Widget>[
             ListTile(
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed(RecyleItemsPage.tag);
+              },
               contentPadding: EdgeInsets.fromLTRB(20.0, 20.0, 0.0, 0.0),
               title: Text(
                 "Recyclable Item List",
