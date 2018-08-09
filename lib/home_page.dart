@@ -29,7 +29,6 @@ class HomePage extends StatelessWidget {
 
     final nextCollection = new Container(
       child: Column(
-        //mainAxisAlignment: VerticalDirection.up,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
@@ -182,9 +181,6 @@ class HomePage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.home),
-            onPressed: () {
-              Navigator.of(context).pushNamed(HomePage.tag);
-            },
           ),
           IconButton(
             icon: Icon(Icons.explore),
