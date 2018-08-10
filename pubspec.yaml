@@ -5,6 +5,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^0.1.0
+  material_search: ^0.2.7
 
 dev_dependencies:
   flutter_test:
@@ -26,8 +27,8 @@ flutter:
     - assets/image8.png
     - assets/image9.png
     - assets/image10.png
-    
+
   fonts:
-      - family: Potra
-        fonts:
-          - asset: assets/Potra.ttf
+    - family: Potra
+      fonts:
+        - asset: assets/Potra.ttf
