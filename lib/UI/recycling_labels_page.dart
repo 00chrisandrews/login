@@ -34,7 +34,7 @@ class _MainPageState extends State<MainPage> {
 //   onChanged: (double newValue) {
 //     return _duelCommandment = newValue;
 //   },
-);
+//);
 
 List<Widget> _buildGridTiles(numberOfTiles) {
   List<Container> containers =
