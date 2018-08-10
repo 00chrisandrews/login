@@ -179,6 +179,7 @@ class HomePage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.home),
+            onPressed: () {},
           ),
           IconButton(
             icon: Icon(Icons.explore),

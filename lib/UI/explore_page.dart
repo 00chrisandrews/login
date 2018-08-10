@@ -11,6 +11,7 @@ class ExplorePage extends StatelessWidget {
     final title = 'Items that you can recycle';
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: title,
       home: Scaffold(
         appBar: new AppBar(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material_search/material_search.dart';
+//import 'package:material_search/material_search.dart';
 
 import 'explore_page.dart';
 import 'home_page.dart';
@@ -8,9 +8,9 @@ import 'package:login/Utils/items.dart';
 class RecyleItemsPage extends StatelessWidget {
   static String tag = 'RecyleItemsPage';
 
-  var recyclableItems = new Items().recyclableItems;
-  var householdWasteCentres = new Items().householdWasteRecyclingCentres;
-  var nonRecyleItems = new Items().nonRecyclableItems;
+  final recyclableItems = new Items().recyclableItems;
+  final householdWasteCentres = new Items().householdWasteRecyclingCentres;
+  final nonRecyleItems = new Items().nonRecyclableItems;
 
   @override
   Widget build(BuildContext context) {
