@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login/UI/home_page.dart';
 import 'package:login/UI/recycle_item_list.dart';
+import 'package:login/UI/recycling_labels_page.dart';
 
 class ExplorePage extends StatelessWidget {
   static String tag = 'ExplorePage';
@@ -46,6 +47,11 @@ class ExplorePage extends StatelessWidget {
                   "A list of the items you can and cant recycle in your area. "),
             ),
             ListTile(
+              onTap: () {
+                Navigator
+                    .of(context)
+                    .pushReplacementNamed(RecyclingLabelsPage.tag);
+              },
               contentPadding: EdgeInsets.only(left: 20.0),
               title: Text(
                 'Recycling Labels',

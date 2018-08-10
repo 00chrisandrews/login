@@ -53,7 +53,6 @@ class HomePage extends StatelessWidget {
 
     final playerPoints = new Container(
       child: Column(
-        //mainAxisAlignment: VerticalDirection.up,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
@@ -103,7 +102,6 @@ class HomePage extends StatelessWidget {
 
     final positionInGroup = new Container(
       child: Column(
-        //mainAxisAlignment: VerticalDirection.up,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
