@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
           Row(
             children: <Widget>[
               Text(
-                "10",
+                "0",
                 style: TextStyle(fontSize: 65.0, color: Colors.white),
               ),
               Text(
@@ -58,7 +58,7 @@ class HomePage extends StatelessWidget {
           Row(
             children: <Widget>[
               Text(
-                "1500",
+                "0",
                 style: TextStyle(fontSize: 65.0, color: Colors.white),
               ),
               Text(
@@ -83,7 +83,7 @@ class HomePage extends StatelessWidget {
           Row(
             children: <Widget>[
               Text(
-                "20",
+                "0",
                 style: TextStyle(fontSize: 65.0, color: Colors.white),
               ),
               Text(
@@ -107,11 +107,11 @@ class HomePage extends StatelessWidget {
           Row(
             children: <Widget>[
               Text(
-                "2",
+                "0",
                 style: TextStyle(fontSize: 65.0, color: Colors.white),
               ),
               Text(
-                "Out of 4",
+                "Out of 0",
                 style: TextStyle(fontSize: 15.0, color: Colors.white),
               ),
             ],

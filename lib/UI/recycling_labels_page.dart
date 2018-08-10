@@ -8,6 +8,7 @@ class RecyclingLabelsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: new Scaffold(
         appBar: new AppBar(
           backgroundColor: Colors.green,
@@ -44,49 +45,3 @@ class RecyclingLabelsPage extends StatelessWidget {
     );
   }
 }
-
-// class MainPage extends StatefulWidget {
-//   @override
-//   _MainPageState createState() => _MainPageState();
-// }
-
-// class _MainPageState extends State<MainPage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return new Scaffold(
-//       appBar: new AppBar(
-//         backgroundColor: Colors.green,
-//         title: new Text("Recycling Labels"),
-//         actions: <Widget>[
-//           IconButton(
-//             icon: Icon(Icons.home),
-//             onPressed: () {
-//               Navigator.of(context).pushReplacementNamed(HomePage.tag);
-//             },
-//           ),
-//           IconButton(
-//             icon: Icon(Icons.explore),
-//             onPressed: () {
-//               Navigator.of(context).pushReplacementNamed(ExplorePage.tag);
-//             },
-//           )
-//         ],
-//       ),
-//       body: GridView.extent(
-//         maxCrossAxisExtent: 100.0,
-//         children: _buildGridTiles(10),
-//       ),
-//     );
-//   }
-// }
-
-// List<Widget> _buildGridTiles(numberOfTiles) {
-//   List<Container> containers =
-//       new List<Container>.generate(numberOfTiles, (int index) {
-//     final imageName = 'assets/image${index + 1}.jpg';
-//     return new Container(
-//       child: new Image.asset(imageName),
-//     );
-//   });
-//   return containers;
-// }
