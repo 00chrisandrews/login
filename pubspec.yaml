@@ -27,6 +27,10 @@ flutter:
     - assets/image8.jpg
     - assets/image9.jpg
     - assets/image10.jpg
+    - assets/image11.png
+    - assets/image12.png
+    - assets/image13.png
+    - assets/logowithouteva.png
 
   fonts:
     - family: Potra
