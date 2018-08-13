@@ -5,6 +5,7 @@ import 'package:login/UI/explore_page.dart';
 import 'UI/recycle_item_list.dart';
 import 'UI/recycling_labels_page.dart';
 import 'UI/welcome_page.dart';
+import 'UI/notifications_page.dart';
 
 //import 'package:login/new_page.dart';
 //import 'home_page.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
     RecyleItemsPage.tag: (context) => RecyleItemsPage(),
     RecyclingLabelsPage.tag: (context) => RecyclingLabelsPage(),
     WelcomePage.tag: (context) => WelcomePage(),
+    NotificationsPage.tag: (context) => NotificationsPage(),
   };
 
   @override

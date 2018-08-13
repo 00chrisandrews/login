@@ -22,7 +22,9 @@ class RecyclingLabelsPage extends StatelessWidget {
             ),
             IconButton(
               icon: Icon(Icons.explore),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushReplacementNamed(ExplorePage.tag);
+              },
             )
           ],
         ),

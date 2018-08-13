@@ -58,18 +58,10 @@ class _LoginPageState extends State<LoginPage> {
           onPressed: () {
             Navigator.of(context).pushReplacementNamed(HomePage.tag);
           },
-          color: Color(0xFF88e888),
-          child: Text('Log In', style: TextStyle(color: Colors.white)),
+          color: Color(0xFF88E888),
+          child: Text('Login', style: TextStyle(color: Colors.grey[900])),
         ),
       ),
-    );
-
-    final forgotLabel = FlatButton(
-      child: Text(
-        'Forgot password?',
-        style: TextStyle(color: Colors.white),
-      ),
-      onPressed: () {},
     );
 
     return Scaffold(
@@ -100,10 +92,6 @@ class _LoginPageState extends State<LoginPage> {
               new Padding(
                 padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
                 child: loginButton,
-              ),
-              new Padding(
-                padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
-                child: forgotLabel,
               ),
             ],
           ),

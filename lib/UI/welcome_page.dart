@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:login/UI/home_page.dart';
 import 'home_page.dart';
 import 'login_page.dart';
 
@@ -50,15 +49,6 @@ class WelcomePage extends StatelessWidget {
                   ),
                 )
               ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 20.0),
-          ),
-          new Container(
-            child: new Text(
-              "Already have an account?",
-              style: TextStyle(color: Colors.white),
             ),
           ),
         ],
@@ -112,15 +102,6 @@ class WelcomePage extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 20.0),
-          ),
-          new Container(
-            child: new Text(
-              "Already have an account?",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
         ],
       ),
     ),
@@ -172,73 +153,10 @@ class WelcomePage extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(bottom: 10.0),
-          ),
         ],
       ),
     ),
   );
-
-  // final createAccount = new Container(
-  //   decoration: new BoxDecoration(
-  //     image: new DecorationImage(
-  //       image: new AssetImage('assets/fern.png'),
-  //       fit: BoxFit.cover,
-  //     ),
-  //   ),
-  //   child: Center(
-  //     child: Column(
-  //       children: <Widget>[
-  //         Padding(
-  //           padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
-  //         ),
-  //         new Container(
-  //           padding: EdgeInsets.all(40.0),
-  //           child: new Image.asset('assets/logowithouteva.png'),
-  //         ),
-  //         Padding(
-  //           padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
-  //         ),
-  //         new Container(
-  //           width: 400.0,
-  //           height: 330.0,
-  //           color: Color(0xFF575757),
-  //           padding: EdgeInsets.all(10.0),
-  //           child: Column(
-  //             mainAxisAlignment: MainAxisAlignment.center,
-  //             children: <Widget>[
-  //               new Image.asset(
-  //                 'assets/image12.png',
-  //                 scale: 3.5,
-  //               ),
-  //               new Padding(
-  //                 padding: EdgeInsetsDirectional.only(bottom: 10.0),
-  //               ),
-  //               new Padding(
-  //                 padding: EdgeInsets.fromLTRB(60.0, 0.0, 60.0, 0.0),
-  //                 child: new Text(
-  //                   "Compete with friends and family for bragging rights and become the king or queen of recycling",
-  //                   textAlign: TextAlign.center,
-  //                   style: TextStyle(color: Color(0xFF88E888)),
-  //                 ),
-  //               )
-  //             ],
-  //           ),
-  //         ),
-  //         Padding(
-  //           padding: EdgeInsets.only(top: 20.0),
-  //         ),
-  //         new Container(
-  //           child: new Text(
-  //             "Already have an account?",
-  //             style: TextStyle(color: Colors.white),
-  //           ),
-  //         ),
-  //       ],
-  //     ),
-  //   ),
-  // );
 
   @override
   Widget build(BuildContext context) {
@@ -293,7 +211,7 @@ class WelcomePage extends StatelessWidget {
       ),
     );
 
-    final loginButton = Padding(
+    final createAccountBtn = Padding(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Material(
         borderRadius: BorderRadius.circular(30.0),
@@ -306,15 +224,15 @@ class WelcomePage extends StatelessWidget {
             Navigator.of(context).pushReplacementNamed(HomePage.tag);
           },
           color: Color(0xFF88E888),
-          child:
-              Text('Create Account', style: TextStyle(color: Colors.grey[900])),
+          child: new Text("Create Account",
+              style: TextStyle(color: Colors.grey[900])),
         ),
       ),
     );
 
-    final forgotLabel = FlatButton(
+    final alreadyHaveAccountBtn = FlatButton(
       child: Text(
-        'Already have an account? Login',
+        'Already have an account?',
         style: TextStyle(color: Colors.white),
       ),
       onPressed: () {
@@ -357,11 +275,11 @@ class WelcomePage extends StatelessWidget {
                   ),
                   new Padding(
                     padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
-                    child: loginButton,
+                    child: createAccountBtn,
                   ),
                   new Padding(
                     padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
-                    child: forgotLabel,
+                    child: alreadyHaveAccountBtn,
                   ),
                 ],
               ),

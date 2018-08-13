@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login/UI/home_page.dart';
 import 'package:login/UI/recycle_item_list.dart';
 import 'package:login/UI/recycling_labels_page.dart';
+import 'package:login/UI/notifications_page.dart';
 
 class ExplorePage extends StatelessWidget {
   static String tag = 'ExplorePage';
@@ -65,6 +66,11 @@ class ExplorePage extends StatelessWidget {
                   "Definition of every recycling label printed on goods sold in the United Kingdom"),
             ),
             ListTile(
+              onTap: () {
+                Navigator
+                    .of(context)
+                    .pushReplacementNamed(NotificationsPage.tag);
+              },
               contentPadding: EdgeInsets.only(left: 20.0),
               title: Text(
                 'Notifications',
