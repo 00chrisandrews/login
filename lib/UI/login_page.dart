@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:login/UI/home_page.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatelessWidget {
   static String tag = 'login-page';
-  @override
-  _LoginPageState createState() => new _LoginPageState();
-}
 
-class _LoginPageState extends State<LoginPage> {
+  // const LoginPage({
+  //   Key key,
+  //   @required this.onSubmit,
+  // }) : super(key: key);
+  // final VoidCallback onSubmit;
+
+  static final TextEditingController _user = new TextEditingController();
+  static final TextEditingController _pass = new TextEditingController();
+
+  String get userName => _user.text;
+  String get userPass => _pass.text;
+
   @override
   Widget build(BuildContext context) {
     final logo = Image.asset(
@@ -16,24 +24,24 @@ class _LoginPageState extends State<LoginPage> {
       fit: BoxFit.cover,
     );
 
-    final email = TextFormField(
-      keyboardType: TextInputType.emailAddress,
+    final email = TextField(
+      controller: _user,
+      keyboardType: TextInputType.text,
       autofocus: false,
-      initialValue: '',
       style: new TextStyle(color: Colors.black),
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
-        hintText: 'Enter Email',
+        hintText: 'Enter Username',
         hintStyle: new TextStyle(color: Colors.grey[400]),
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(0.0)),
       ),
     );
 
-    final password = TextFormField(
+    final password = TextField(
+      controller: _pass,
       autofocus: false,
-      initialValue: '',
       style: new TextStyle(color: Colors.black),
       obscureText: true,
       decoration: InputDecoration(
@@ -56,7 +64,10 @@ class _LoginPageState extends State<LoginPage> {
           minWidth: 200.0,
           height: 42.0,
           onPressed: () {
-            Navigator.of(context).pushReplacementNamed(HomePage.tag);
+            //onSubmit();
+            if (userName == "Test User" && userPass == "beans") {
+              Navigator.of(context).pushReplacementNamed(HomePage.tag);
+            }
           },
           color: Color(0xFF88E888),
           child: Text('Login', style: TextStyle(color: Colors.grey[900])),
