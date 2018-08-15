@@ -8,7 +8,7 @@ class WelcomePage extends StatelessWidget {
   final pageOneContent = new Container(
     decoration: new BoxDecoration(
       image: new DecorationImage(
-        image: new AssetImage('assets/fern.png'),
+        image: new AssetImage('assets/forrest.png'),
         fit: BoxFit.cover,
       ),
     ),
@@ -16,7 +16,7 @@ class WelcomePage extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
+            padding: EdgeInsets.fromLTRB(0.0, 90.0, 0.0, 0.0),
           ),
           new Container(
             padding: EdgeInsets.all(40.0),
@@ -26,7 +26,8 @@ class WelcomePage extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
           ),
           new Container(
-            width: 400.0,
+            alignment: AlignmentDirectional.center,
+            width: 450.0,
             height: 330.0,
             color: Color(0xFF575757),
             padding: EdgeInsets.all(10.0),
@@ -59,7 +60,7 @@ class WelcomePage extends StatelessWidget {
   final pageTwoContent = new Container(
     decoration: new BoxDecoration(
       image: new DecorationImage(
-        image: new AssetImage('assets/fern.png'),
+        image: new AssetImage('assets/weirdplant.png'),
         fit: BoxFit.cover,
       ),
     ),
@@ -67,7 +68,7 @@ class WelcomePage extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
+            padding: EdgeInsets.fromLTRB(0.0, 90.0, 0.0, 0.0),
           ),
           new Container(
             padding: EdgeInsets.all(40.0),
@@ -77,7 +78,7 @@ class WelcomePage extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
           ),
           new Container(
-            width: 400.0,
+            width: 450.0,
             height: 330.0,
             color: Color(0xFF575757),
             padding: EdgeInsets.all(10.0),
@@ -110,7 +111,7 @@ class WelcomePage extends StatelessWidget {
   final pageThreeContent = new Container(
     decoration: new BoxDecoration(
       image: new DecorationImage(
-        image: new AssetImage('assets/fern.png'),
+        image: new AssetImage('assets/smallfern.png'),
         fit: BoxFit.cover,
       ),
     ),
@@ -118,7 +119,7 @@ class WelcomePage extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
+            padding: EdgeInsets.fromLTRB(0.0, 90.0, 0.0, 0.0),
           ),
           new Container(
             padding: EdgeInsets.all(40.0),
@@ -128,7 +129,7 @@ class WelcomePage extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
           ),
           new Container(
-            width: 400.0,
+            width: 450.0,
             height: 330.0,
             color: Color(0xFF575757),
             padding: EdgeInsets.all(10.0),
@@ -242,6 +243,7 @@ class WelcomePage extends StatelessWidget {
 
     return Scaffold(
       body: PageView(
+        controller: PageController(viewportFraction: 1.0),
         children: <Widget>[
           pageOneContent,
           pageTwoContent,

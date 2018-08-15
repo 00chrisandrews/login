@@ -4,12 +4,6 @@ import 'package:login/UI/home_page.dart';
 class LoginPage extends StatelessWidget {
   static String tag = 'login-page';
 
-  // const LoginPage({
-  //   Key key,
-  //   @required this.onSubmit,
-  // }) : super(key: key);
-  // final VoidCallback onSubmit;
-
   static final TextEditingController _user = new TextEditingController();
   static final TextEditingController _pass = new TextEditingController();
 
@@ -64,10 +58,7 @@ class LoginPage extends StatelessWidget {
           minWidth: 200.0,
           height: 42.0,
           onPressed: () {
-            //onSubmit();
-            if (userName == "Test User" && userPass == "beans") {
-              Navigator.of(context).pushReplacementNamed(HomePage.tag);
-            }
+            Navigator.of(context).pushReplacementNamed(HomePage.tag);
           },
           color: Color(0xFF88E888),
           child: Text('Login', style: TextStyle(color: Colors.grey[900])),

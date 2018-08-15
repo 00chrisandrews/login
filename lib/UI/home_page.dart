@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login/UI/add_item_page.dart';
 import 'explore_page.dart';
 
 //void main() => runApp(ExpansionTileSample());
@@ -14,10 +15,10 @@ class HomePage extends StatelessWidget {
         shadowColor: Colors.black,
         elevation: 5.0,
         child: MaterialButton(
-          minWidth: 200.0,
-          height: 42.0,
+          minWidth: 300.0,
+          height: 62.0,
           onPressed: () {
-            Navigator.of(context).pushNamed(HomePage.tag);
+            Navigator.of(context).pushNamed(CameraApp.tag);
           },
           color: Colors.green,
           child: Text('Add Item',
@@ -35,16 +36,19 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               Text(
                 "0",
+                textScaleFactor: 1.4,
                 style: TextStyle(fontSize: 65.0, color: Colors.white),
               ),
               Text(
                 "Days",
+                textScaleFactor: 1.4,
                 style: TextStyle(fontSize: 15.0, color: Colors.white),
               ),
             ],
           ),
           Text(
             "Until next collection",
+            textScaleFactor: 1.4,
             style: TextStyle(fontSize: 15.0, color: Colors.white),
           )
         ],
@@ -59,16 +63,19 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               Text(
                 "0",
+                textScaleFactor: 1.4,
                 style: TextStyle(fontSize: 65.0, color: Colors.white),
               ),
               Text(
                 "Points",
+                textScaleFactor: 1.4,
                 style: TextStyle(fontSize: 15.0, color: Colors.white),
               ),
             ],
           ),
           Text(
             "Points gathered from recycling this week",
+            textScaleFactor: 1.4,
             style: TextStyle(fontSize: 15.0, color: Colors.white),
           )
         ],
@@ -84,16 +91,19 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               Text(
                 "0",
+                textScaleFactor: 1.4,
                 style: TextStyle(fontSize: 65.0, color: Colors.white),
               ),
               Text(
                 "Items",
+                textScaleFactor: 1.4,
                 style: TextStyle(fontSize: 15.0, color: Colors.white),
               ),
             ],
           ),
           Text(
             "Products recycled this week",
+            textScaleFactor: 1.4,
             style: TextStyle(fontSize: 15.0, color: Colors.white),
           )
         ],
@@ -108,16 +118,19 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               Text(
                 "0",
+                textScaleFactor: 1.4,
                 style: TextStyle(fontSize: 65.0, color: Colors.white),
               ),
               Text(
                 "Out of 0",
+                textScaleFactor: 1.4,
                 style: TextStyle(fontSize: 15.0, color: Colors.white),
               ),
             ],
           ),
           Text(
             "Position in Household",
+            textScaleFactor: 1.4,
             style: TextStyle(fontSize: 15.0, color: Colors.white),
           )
         ],
@@ -126,8 +139,9 @@ class HomePage extends StatelessWidget {
 
     final body = Container(
       decoration: new BoxDecoration(
-          image: new DecorationImage(
-              image: new AssetImage('assets/fern.png'), fit: BoxFit.cover)),
+        image: new DecorationImage(
+            image: new AssetImage('assets/fern.png'), fit: BoxFit.cover),
+      ),
       child: Column(
         children: <Widget>[
           Padding(

@@ -6,13 +6,15 @@ import 'UI/recycle_item_list.dart';
 import 'UI/recycling_labels_page.dart';
 import 'UI/welcome_page.dart';
 import 'UI/notifications_page.dart';
+import 'UI/add_item_page.dart';
 
-//import 'package:login/new_page.dart';
-//import 'home_page.dart';
-//import 'list_page.dart';
-//import 'cannot_list_page.dart';
+import 'package:camera/camera.dart';
+import 'dart:async';
 
-void main() => runApp(MyApp());
+Future<Null> main() async {
+  cameras = await availableCameras();
+  runApp(new MyApp());
+}
 
 class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
@@ -23,6 +25,7 @@ class MyApp extends StatelessWidget {
     RecyclingLabelsPage.tag: (context) => RecyclingLabelsPage(),
     WelcomePage.tag: (context) => WelcomePage(),
     NotificationsPage.tag: (context) => NotificationsPage(),
+    CameraApp.tag: (context) => CameraApp(),
   };
 
   @override
@@ -31,6 +34,9 @@ class MyApp extends StatelessWidget {
       title: 'Evergreen',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        accentColor: Colors.greenAccent,
+        backgroundColor: Colors.green,
+        splashColor: Colors.green,
         primarySwatch: Colors.green,
         fontFamily: 'Roboto',
       ),

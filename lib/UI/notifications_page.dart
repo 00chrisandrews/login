@@ -58,7 +58,7 @@ class NotificationsPageState extends State<NotificationsPage> {
     );
 
     final dayBeforeCollectionSwitch = Switch(
-      value: false,
+      value: false, onChanged: (bool value) {},
     );
 
     final leaderChange = new Text(
@@ -67,7 +67,7 @@ class NotificationsPageState extends State<NotificationsPage> {
     );
 
     final leaderChangeSwitch = Switch(
-      value: false,
+      value: false, onChanged: (bool value) {},
     );
 
     return Scaffold(

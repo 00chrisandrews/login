@@ -59,7 +59,8 @@ class RecyleItemsPage extends StatelessWidget {
                 itemCount: recyclableItems.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text('${recyclableItems[index]}'),
+                    title: Text(
+                        '${recyclableItems.sort((a, b) => a.length.compareTo(b.length))}'),
                   );
                 },
               ),
