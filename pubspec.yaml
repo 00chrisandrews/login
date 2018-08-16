@@ -7,6 +7,7 @@ dependencies:
   cupertino_icons: ^0.1.0
   material_search: ^0.2.7
   camera: ^0.2.1
+  sqflite: any
 
 dev_dependencies:
   flutter_test:
@@ -37,6 +38,7 @@ flutter:
     - assets/image12.png
     - assets/image13.png
     - assets/logowithouteva.png
+    - assets/example.db
 
   fonts:
     - family: Potra

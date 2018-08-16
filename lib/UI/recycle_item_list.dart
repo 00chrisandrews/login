@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 //import 'package:material_search/material_search.dart';
 
 import 'explore_page.dart';
@@ -59,8 +60,7 @@ class RecyleItemsPage extends StatelessWidget {
                 itemCount: recyclableItems.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text(
-                        '${recyclableItems.sort((a, b) => a.length.compareTo(b.length))}'),
+                    title: Text('${recyclableItems[index]}'),
                   );
                 },
               ),

@@ -1,5 +1,12 @@
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:login/UI/home_page.dart';
+import 'package:login/Utils/user.dart';
+import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
 
 class LoginPage extends StatelessWidget {
   static String tag = 'login-page';
@@ -57,8 +64,48 @@ class LoginPage extends StatelessWidget {
         child: MaterialButton(
           minWidth: 200.0,
           height: 42.0,
-          onPressed: () {
-            Navigator.of(context).pushReplacementNamed(HomePage.tag);
+          onPressed: () async {
+            //Navigator.of(context).pushReplacementNamed(HomePage.tag);
+
+            var databasesPath = await getDatabasesPath();
+            var path = join(databasesPath, "demo_asset_example.db");
+
+            // try opening (will work if it exists)
+            Database db;
+            try {
+              db = await openDatabase(path, readOnly: false);
+            } catch (e) {
+              print("Error $e");
+            }
+
+            print("This is a virtual path" + path);
+
+            if (db == null) {
+              // Should happen only the first time you launch your application
+              print("Creating new copy from asset");
+
+              // Copy from asset
+              ByteData data =
+                  await rootBundle.load(join("assets", "example.db"));
+              List<int> bytes = data.buffer
+                  .asUint8List(data.offsetInBytes, data.lengthInBytes);
+              await new File(path).writeAsBytes(bytes);
+
+              // open the database
+              db = await openDatabase(path, readOnly: false);
+            } else {
+              print("Opening existing database");
+            }
+
+            //////////////////Insert some records in a transaction;
+            await db.transaction((txn) async {
+              int id1 = await txn.rawInsert(
+                  'INSERT INTO Users(username, password) VALUES("booby", "dropalltables")');
+              print("inserted1: $id1");
+            });
+
+            // // Close the database
+            await db.close();
           },
           color: Color(0xFF88E888),
           child: Text('Login', style: TextStyle(color: Colors.grey[900])),
@@ -67,7 +114,6 @@ class LoginPage extends StatelessWidget {
     );
 
     return Scaffold(
-      //backgroundColor: Colors.grey[850],
       body: new Container(
         decoration: new BoxDecoration(
           image: new DecorationImage(
