@@ -5,160 +5,6 @@ import 'login_page.dart';
 class WelcomePage extends StatelessWidget {
   static String tag = 'WelcomePage';
 
-  final pageOneContent = new Container(
-    decoration: new BoxDecoration(
-      image: new DecorationImage(
-        image: new AssetImage('assets/forrest.png'),
-        fit: BoxFit.cover,
-      ),
-    ),
-    child: Center(
-      child: Column(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 90.0, 0.0, 0.0),
-          ),
-          new Container(
-            padding: EdgeInsets.all(40.0),
-            child: new Image.asset('assets/logowithouteva.png'),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
-          ),
-          new Container(
-            alignment: AlignmentDirectional.center,
-            width: 450.0,
-            height: 330.0,
-            color: Color(0xFF575757),
-            padding: EdgeInsets.all(10.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new Image.asset(
-                  'assets/image13.png',
-                  scale: 3.5,
-                ),
-                new Padding(
-                  padding: EdgeInsetsDirectional.only(bottom: 10.0),
-                ),
-                new Padding(
-                  padding: EdgeInsets.fromLTRB(60.0, 0.0, 60.0, 0.0),
-                  child: new Text(
-                    "This app will help you keep track of what you recycle and how you recycle",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Color(0xFF88E888)),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-
-  final pageTwoContent = new Container(
-    decoration: new BoxDecoration(
-      image: new DecorationImage(
-        image: new AssetImage('assets/weirdplant.png'),
-        fit: BoxFit.cover,
-      ),
-    ),
-    child: Center(
-      child: Column(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 90.0, 0.0, 0.0),
-          ),
-          new Container(
-            padding: EdgeInsets.all(40.0),
-            child: new Image.asset('assets/logowithouteva.png'),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
-          ),
-          new Container(
-            width: 450.0,
-            height: 330.0,
-            color: Color(0xFF575757),
-            padding: EdgeInsets.all(10.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new Image.asset(
-                  'assets/image11.png',
-                  scale: 3.5,
-                ),
-                new Padding(
-                  padding: EdgeInsetsDirectional.only(bottom: 10.0),
-                ),
-                new Padding(
-                  padding: EdgeInsets.fromLTRB(60.0, 0.0, 60.0, 0.0),
-                  child: new Text(
-                    "It will also tell you what you can and cant recycle in your area",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Color(0xFF88E888)),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-
-  final pageThreeContent = new Container(
-    decoration: new BoxDecoration(
-      image: new DecorationImage(
-        image: new AssetImage('assets/smallfern.png'),
-        fit: BoxFit.cover,
-      ),
-    ),
-    child: Center(
-      child: Column(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 90.0, 0.0, 0.0),
-          ),
-          new Container(
-            padding: EdgeInsets.all(40.0),
-            child: new Image.asset('assets/logowithouteva.png'),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
-          ),
-          new Container(
-            width: 450.0,
-            height: 330.0,
-            color: Color(0xFF575757),
-            padding: EdgeInsets.all(10.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new Image.asset(
-                  'assets/image12.png',
-                  scale: 3.5,
-                ),
-                new Padding(
-                  padding: EdgeInsetsDirectional.only(bottom: 10.0),
-                ),
-                new Padding(
-                  padding: EdgeInsets.fromLTRB(60.0, 0.0, 60.0, 0.0),
-                  child: new Text(
-                    "Compete with friends and family for bragging rights and become the king or queen of recycling",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Color(0xFF88E888)),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-
   @override
   Widget build(BuildContext context) {
     final logo = Image.asset(
@@ -233,12 +79,184 @@ class WelcomePage extends StatelessWidget {
 
     final alreadyHaveAccountBtn = FlatButton(
       child: Text(
-        'Already have an account?',
+        'Already have an account? Login',
         style: TextStyle(color: Colors.white),
       ),
       onPressed: () {
         Navigator.of(context).pushReplacementNamed(LoginPage.tag);
       },
+    );
+
+    final pageOneContent = new Container(
+      decoration: new BoxDecoration(
+        image: new DecorationImage(
+          image: new AssetImage('assets/forrest.png'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Center(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.fromLTRB(0.0, 90.0, 0.0, 0.0),
+            ),
+            new Container(
+              padding: EdgeInsets.all(40.0),
+              child: new Image.asset('assets/logowithouteva.png'),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+            ),
+            new Container(
+              alignment: AlignmentDirectional.center,
+              width: 450.0,
+              height: 330.0,
+              color: Color(0xFF575757),
+              padding: EdgeInsets.all(10.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Image.asset(
+                    'assets/image13.png',
+                    scale: 3.5,
+                  ),
+                  new Padding(
+                    padding: EdgeInsetsDirectional.only(bottom: 10.0),
+                  ),
+                  new Padding(
+                    padding: EdgeInsets.fromLTRB(60.0, 0.0, 60.0, 0.0),
+                    child: new Text(
+                      "This app will help you keep track of what you recycle and how you recycle",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Color(0xFF88E888)),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            new Padding(
+              padding: EdgeInsets.only(
+                top: 20.0,
+              ),
+              child: alreadyHaveAccountBtn,
+            )
+          ],
+        ),
+      ),
+    );
+
+    final pageTwoContent = new Container(
+      decoration: new BoxDecoration(
+        image: new DecorationImage(
+          image: new AssetImage('assets/weirdplant.png'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Center(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.fromLTRB(0.0, 90.0, 0.0, 0.0),
+            ),
+            new Container(
+              padding: EdgeInsets.all(40.0),
+              child: new Image.asset('assets/logowithouteva.png'),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+            ),
+            new Container(
+              width: 450.0,
+              height: 330.0,
+              color: Color(0xFF575757),
+              padding: EdgeInsets.all(10.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Image.asset(
+                    'assets/image11.png',
+                    scale: 3.5,
+                  ),
+                  new Padding(
+                    padding: EdgeInsetsDirectional.only(bottom: 10.0),
+                  ),
+                  new Padding(
+                    padding: EdgeInsets.fromLTRB(60.0, 0.0, 60.0, 0.0),
+                    child: new Text(
+                      "It will also tell you what you can and cant recycle in your area",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Color(0xFF88E888)),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            new Padding(
+              padding: EdgeInsets.only(
+                top: 20.0,
+              ),
+              child: alreadyHaveAccountBtn,
+            )
+          ],
+        ),
+      ),
+    );
+
+    final pageThreeContent = new Container(
+      decoration: new BoxDecoration(
+        image: new DecorationImage(
+          image: new AssetImage('assets/smallfern.png'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Center(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.fromLTRB(0.0, 90.0, 0.0, 0.0),
+            ),
+            new Container(
+              padding: EdgeInsets.all(40.0),
+              child: new Image.asset('assets/logowithouteva.png'),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+            ),
+            new Container(
+              width: 450.0,
+              height: 330.0,
+              color: Color(0xFF575757),
+              padding: EdgeInsets.all(10.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Image.asset(
+                    'assets/image12.png',
+                    scale: 3.5,
+                  ),
+                  new Padding(
+                    padding: EdgeInsetsDirectional.only(bottom: 10.0),
+                  ),
+                  new Padding(
+                    padding: EdgeInsets.fromLTRB(60.0, 0.0, 60.0, 0.0),
+                    child: new Text(
+                      "Compete with friends and family for bragging rights and become the king or queen of recycling",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Color(0xFF88E888)),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            new Padding(
+              padding: EdgeInsets.only(
+                top: 20.0,
+              ),
+              child: alreadyHaveAccountBtn,
+            )
+          ],
+        ),
+      ),
     );
 
     return Scaffold(
