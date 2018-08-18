@@ -1,9 +1,22 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
 import 'home_page.dart';
 import 'login_page.dart';
+import 'package:login/Utils/onboard_assets.dart';
 
 class WelcomePage extends StatelessWidget {
   static String tag = 'WelcomePage';
+
+  static final TextEditingController createUser = new TextEditingController();
+  static final TextEditingController createPass = new TextEditingController();
+  static final TextEditingController confirmPass = new TextEditingController();
+
+  String get userName => createUser.text;
+  String get userPass => createPass.text;
+  String get userConfrimPass => confirmPass.text;
 
   @override
   Widget build(BuildContext context) {
@@ -13,24 +26,24 @@ class WelcomePage extends StatelessWidget {
       fit: BoxFit.cover,
     );
 
-    final email = TextFormField(
+    final userField = TextField(
+      controller: createUser,
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
-      initialValue: '',
       style: new TextStyle(color: Colors.black),
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
-        hintText: 'Enter Email',
+        hintText: 'Enter Username',
         hintStyle: new TextStyle(color: Colors.grey[400]),
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(0.0)),
       ),
     );
 
-    final password = TextFormField(
+    final password = TextField(
+      controller: createPass,
       autofocus: false,
-      initialValue: '',
       style: new TextStyle(color: Colors.black),
       obscureText: true,
       decoration: InputDecoration(
@@ -43,9 +56,8 @@ class WelcomePage extends StatelessWidget {
       ),
     );
 
-    final confirmPassword = TextFormField(
+    final confirmPassword = TextField(
       autofocus: false,
-      initialValue: '',
       style: new TextStyle(color: Colors.black),
       obscureText: true,
       decoration: InputDecoration(
@@ -67,8 +79,40 @@ class WelcomePage extends StatelessWidget {
         child: MaterialButton(
           minWidth: 200.0,
           height: 42.0,
-          onPressed: () {
-            Navigator.of(context).pushReplacementNamed(HomePage.tag);
+          onPressed: () async {
+            if (userName != null &&
+                userPass != null &&
+                userConfrimPass != null) {
+              if (userPass == userConfrimPass) {
+                var databasesPath = await getDatabasesPath();
+                var path = join(databasesPath, "demo_asset_example.db");
+
+                // try opening (will work if it exists)
+                Database db;
+                try {
+                  db = await openDatabase(path, readOnly: false);
+                  print("Create Account is Opening database");
+                } catch (e) {
+                  print("Error $e");
+                }
+
+                //Insert some records in a transaction;
+                await db.transaction((txn) async {
+                  int id1 = await txn.rawInsert(
+                      'INSERT INTO Users(username, password) VALUES("$userName", "$userPass")');
+                  print("inserted1: $id1");
+                });
+
+                // Close the database
+                await db.close();
+
+                Navigator.of(context).pushReplacementNamed(LoginPage.tag);
+              } else {
+                print("Passwords do no match");
+              }
+            } else {
+              print("Make sure all fields hold data");
+            }
           },
           color: Color(0xFF88E888),
           child: new Text("Create Account",
@@ -283,7 +327,7 @@ class WelcomePage extends StatelessWidget {
                   ),
                   new Padding(
                     padding: new EdgeInsets.fromLTRB(40.0, 10.0, 40.0, 0.0),
-                    child: email,
+                    child: userField,
                   ),
                   new Padding(
                     padding: new EdgeInsets.fromLTRB(40.0, 10.0, 40.0, 0.0),

@@ -26,6 +26,7 @@ class ExplorePage extends StatelessWidget {
               },
             ),
             IconButton(
+              color: Colors.white70,
               icon: Icon(Icons.explore),
               onPressed: () {},
             )
@@ -37,7 +38,7 @@ class ExplorePage extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacementNamed(RecyleItemsPage.tag);
               },
-              contentPadding: EdgeInsets.fromLTRB(20.0, 20.0, 0.0, 0.0),
+              contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 0.0, 0.0),
               title: Text(
                 "Recyclable Item List",
                 style: TextStyle(
@@ -93,18 +94,6 @@ class ExplorePage extends StatelessWidget {
               ),
               subtitle: Text(
                   "Invite Members, form a group and view group recycling statistics"),
-            ),
-            ListTile(
-              contentPadding: EdgeInsets.only(left: 20.0),
-              title: Text(
-                'Application Settings',
-                style: TextStyle(
-                    fontSize: 20.0,
-                    fontFamily: 'roboto',
-                    fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text(
-                  "Change accessibility settings, legal information and much more"),
             ),
           ],
         ),

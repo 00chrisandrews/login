@@ -1,21 +1,21 @@
+import 'package:collection/collection.dart';
+import 'package:login/UI/home_page.dart';
+
 import 'dart:io';
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:login/UI/home_page.dart';
-import 'package:login/Utils/user.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 class LoginPage extends StatelessWidget {
   static String tag = 'login-page';
 
-  static final TextEditingController _user = new TextEditingController();
-  static final TextEditingController _pass = new TextEditingController();
+  static final TextEditingController user = new TextEditingController();
+  static final TextEditingController pass = new TextEditingController();
 
-  String get userName => _user.text;
-  String get userPass => _pass.text;
+  String get userName => user.text;
+  String get userPass => pass.text;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
     );
 
     final email = TextField(
-      controller: _user,
+      controller: user,
       keyboardType: TextInputType.text,
       autofocus: false,
       style: new TextStyle(color: Colors.black),
@@ -41,7 +41,7 @@ class LoginPage extends StatelessWidget {
     );
 
     final password = TextField(
-      controller: _pass,
+      controller: pass,
       autofocus: false,
       style: new TextStyle(color: Colors.black),
       obscureText: true,
@@ -65,8 +65,6 @@ class LoginPage extends StatelessWidget {
           minWidth: 200.0,
           height: 42.0,
           onPressed: () async {
-            //Navigator.of(context).pushReplacementNamed(HomePage.tag);
-
             var databasesPath = await getDatabasesPath();
             var path = join(databasesPath, "demo_asset_example.db");
 
@@ -74,37 +72,57 @@ class LoginPage extends StatelessWidget {
             Database db;
             try {
               db = await openDatabase(path, readOnly: false);
+              print("Login Opening database");
             } catch (e) {
               print("Error $e");
             }
 
-            print("This is a virtual path" + path);
+            //  await db.execute(
+            //      "CREATE TABLE Users (userid INTEGER PRIMARY KEY, username TEXT, password TEXT)");
 
-            if (db == null) {
-              // Should happen only the first time you launch your application
-              print("Creating new copy from asset");
+            // db = await openDatabase(path, readOnly: false);
 
-              // Copy from asset
-              ByteData data =
-                  await rootBundle.load(join("assets", "example.db"));
-              List<int> bytes = data.buffer
-                  .asUint8List(data.offsetInBytes, data.lengthInBytes);
-              await new File(path).writeAsBytes(bytes);
+            // await db.transaction((txn) async {
+            //   int id1 = await txn.rawInsert(
+            //       'INSERT INTO Users(username, password) VALUES("$userName", "$userPass")');
+            //   print("inserted1: $id1");
+            // });
 
-              // open the database
-              db = await openDatabase(path, readOnly: false);
-            } else {
-              print("Opening existing database");
+            // List<Map> list = await db.rawQuery('SELECT * FROM Users');
+            // print(list);
+            List<Map> list2 = await db.rawQuery(
+                'SELECT * FROM Users WHERE username = "$userName" AND password = "$userPass"');
+            print(list2);
+
+            if (list2.length == 1) {
+              Navigator.of(context).pushReplacementNamed(HomePage.tag);
             }
+            print(list2.length);
 
-            //////////////////Insert some records in a transaction;
-            await db.transaction((txn) async {
-              int id1 = await txn.rawInsert(
-                  'INSERT INTO Users(username, password) VALUES("booby", "dropalltables")');
-              print("inserted1: $id1");
-            });
+            //if (db == null)
+            // Should happen only the first time you launch your application
+            //print("Creating new copy from asset");
 
-            // // Close the database
+            // // Copy from asset
+            // ByteData data =
+            //     await rootBundle.load(join("assets", "example.db"));
+            // List<int> bytes = data.buffer
+            //     .asUint8List(data.offsetInBytes, data.lengthInBytes);
+            // await new File(path).writeAsBytes(bytes);
+
+            // open the database
+
+            // } else {
+            //   print("Opening existing database");
+            // }
+            // //Insert some records in a transaction;
+            // await db.transaction((txn) async {
+            //   int id1 = await txn.rawInsert(
+            //       'INSERT INTO Users(username, password) VALUES("$userName", "$userPass")');
+            //   print("inserted1: $id1");
+            // });
+
+            // Close the database
             await db.close();
           },
           color: Color(0xFF88E888),

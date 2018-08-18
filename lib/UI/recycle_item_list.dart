@@ -9,19 +9,25 @@ import 'package:login/Utils/items.dart';
 class RecyleItemsPage extends StatelessWidget {
   static String tag = 'RecyleItemsPage';
 
-  final recyclableItems = new Items().recyclableItems;
-  final householdWasteCentres = new Items().householdWasteRecyclingCentres;
-  final nonRecyleItems = new Items().nonRecyclableItems;
+  final recItems = new Items().sortRecItems();
+  final houseWaste = new Items().sortHouseItems();
+  final nonRecItems = new Items().sortNonRecItems();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: new ThemeData(
+        primaryColor: Colors.green,
+        accentColor: Colors.green,
+      ),
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 3,
         child: Scaffold(
           appBar: new AppBar(
             bottom: TabBar(
+              unselectedLabelColor: Colors.white70,
+              labelColor: Colors.white,
               isScrollable: true,
               indicatorColor: Colors.white,
               indicatorWeight: 4.0,
@@ -57,26 +63,26 @@ class RecyleItemsPage extends StatelessWidget {
           body: TabBarView(
             children: <Widget>[
               ListView.builder(
-                itemCount: recyclableItems.length,
+                itemCount: recItems.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text('${recyclableItems[index]}'),
+                    title: Text('${recItems[index]}'),
                   );
                 },
               ),
               ListView.builder(
-                itemCount: householdWasteCentres.length,
+                itemCount: nonRecItems.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text('${householdWasteCentres[index]}'),
+                    title: Text('${nonRecItems[index]}'),
                   );
                 },
               ),
               ListView.builder(
-                itemCount: nonRecyleItems.length,
+                itemCount: houseWaste.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text('${nonRecyleItems[index]}'),
+                    title: Text('${houseWaste[index]}'),
                   );
                 },
               ),

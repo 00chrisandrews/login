@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Items {
-  var recyclableItems = [
+  List<String> recyclableItems = [
     "Paper",
     "Wrapping Paper - Not the shiny plastic sort",
     "Newspapers",
@@ -34,6 +34,11 @@ class Items {
     "Plastic and Cardboard Packaging - Excluding polystyrene)",
   ];
 
+  sortRecItems() {
+    recyclableItems.sort();
+    return recyclableItems;
+  }
+
   var nonRecyclableItems = [
     "Balloons/streamers",
     "Hard or brittle plastic e.g.boxes",
@@ -60,6 +65,12 @@ class Items {
     "General household waste including cigarette ends",
     "Knives/cutlery/utensils",
   ];
+
+  sortNonRecItems() {
+    nonRecyclableItems.sort();
+    return nonRecyclableItems;
+  }
+
   var householdWasteRecyclingCentres = [
     "Cooking oil",
     "Batteries (household & car)",
@@ -78,4 +89,8 @@ class Items {
     "Electrical wire",
     "Electrical and electronic items e.g. electric toothbrush; toaster; kettle; hairdryer; straighteners; power tools etc. known as WEEE",
   ];
+  sortHouseItems() {
+    householdWasteRecyclingCentres.sort();
+    return householdWasteRecyclingCentres;
+  }
 }

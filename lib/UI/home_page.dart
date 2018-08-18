@@ -1,11 +1,20 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:login/UI/add_item_page.dart';
+import 'package:login/Utils/user.dart';
+import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
 import 'explore_page.dart';
+
+import 'package:login/Utils/items.dart';
 
 //void main() => runApp(ExpansionTileSample());
 
 class HomePage extends StatelessWidget {
   static String tag = 'HomePage';
+
+  final recyclableItemsList = new Items().recyclableItems;
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +25,33 @@ class HomePage extends StatelessWidget {
         elevation: 5.0,
         child: MaterialButton(
           minWidth: 300.0,
-          height: 62.0,
-          onPressed: () {
-            Navigator.of(context).pushNamed(CameraApp.tag);
+          height: 42.0,
+          onPressed: () async {
+            var databasesPath = await getDatabasesPath();
+            var path = join(databasesPath, "demo_asset_example.db");
+
+            // try opening (will work if it exists)
+            Database db;
+            try {
+              db = await openDatabase(path, readOnly: false);
+              print("Login Opening database");
+            } catch (e) {
+              print("Error $e");
+            }
+
+            // // Update some record
+            // int count = await db.rawUpdate(
+            //     'UPDATE Users SET POINTS = ? WHERE userid = ?', ["10", "1"]);
+            // print(count);
+
+            List<Map> res =
+                await db.rawQuery('SELECT points FROM Users WHERE userid="1"');
+
+            print(res);
+
+            await db.close();
+
+            //Navigator.of(context).pushNamed(CameraApp.tag);
           },
           color: Colors.green,
           child: Text('Add Item',
@@ -169,7 +202,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(10.0, 15.0, 0.0, 0.0),
+            padding: EdgeInsets.fromLTRB(10.0, 25.0, 0.0, 0.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,

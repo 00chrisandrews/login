@@ -1,9 +1,9 @@
+import 'package:login/UI/explore_page.dart';
+import 'package:login/UI/home_page.dart';
+import 'package:login/UI/select_item_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
-import 'package:login/UI/explore_page.dart';
-import 'dart:async';
-
-import 'package:login/UI/home_page.dart';
 
 List<CameraDescription> cameras;
 
@@ -16,7 +16,6 @@ class CameraApp extends StatefulWidget {
 
 class _CameraAppState extends State<CameraApp> {
   CameraController controller;
-
   @override
   void initState() {
     super.initState();
@@ -48,6 +47,7 @@ class _CameraAppState extends State<CameraApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Color(0xFF575757),
         appBar: new AppBar(
           title: const Text("Evergreen"),
           backgroundColor: Colors.green,
@@ -72,13 +72,22 @@ class _CameraAppState extends State<CameraApp> {
               alignment: AlignmentDirectional.topCenter,
               child: cameraWidget(),
             ),
-            new Container(
-              color: Colors.green,
-              alignment: AlignmentDirectional.center,
-              child: new MaterialButton(
-                height: 30.0,
-                minWidth: 200.0,
-                color: Colors.red,
+            new Expanded(
+              child: Container(
+                width: 90.0,
+                child: new FloatingActionButton(
+                  backgroundColor: Colors.redAccent,
+                  shape: const CircleBorder(),
+                  child: new Icon(
+                    Icons.camera,
+                    size: 40.0,
+                  ),
+                  onPressed: () {
+                    Navigator
+                        .of(context)
+                        .pushReplacementNamed(SelectItemPage.tag);
+                  },
+                ),
               ),
             ),
           ],
