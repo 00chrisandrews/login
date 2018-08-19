@@ -7,6 +7,8 @@ import 'UI/welcome_page.dart';
 import 'UI/notifications_page.dart';
 import 'UI/add_item_page.dart';
 import 'UI/select_item_page.dart';
+import 'UI/group_page.dart';
+import 'UI/group_settings.dart';
 
 import 'package:camera/camera.dart';
 import 'dart:async';
@@ -54,7 +56,9 @@ class MyApp extends StatelessWidget {
     WelcomePage.tag: (context) => WelcomePage(),
     NotificationsPage.tag: (context) => NotificationsPage(),
     CameraApp.tag: (context) => CameraApp(),
-    SelectItemPage.tag: (context) => SelectItemPage()
+    SelectItemPage.tag: (context) => SelectItemPage(),
+    GroupPage.tag: (context) => GroupPage(),
+    GroupSettingsPage.tag: (context) => GroupSettingsPage(),
   };
 
   @override

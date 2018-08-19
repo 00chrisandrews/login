@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:login/UI/explore_page.dart';
 import 'package:login/UI/home_page.dart';
 import 'package:login/Utils/items.dart';
-import 'package:login/Utils/user.dart';
+import 'package:login/Utils/globals.dart' as globals;
 
 class SelectItemPage extends StatelessWidget {
   static String tag = 'SelectItemPage';
 
-  final recyclableItems = new Items().recyclableItems;
+  final recyclableItems = new Items().sortRecItems();
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +34,8 @@ class SelectItemPage extends StatelessWidget {
         itemBuilder: (context, index) {
           return ListTile(
             onTap: () {
-              User().addPointsToUser();
-              print(User().points);
+              globals.addUserPointsAndItem();
+              Navigator.of(context).pushReplacementNamed(HomePage.tag);
             },
             title: Text('${recyclableItems[index]}'),
           );

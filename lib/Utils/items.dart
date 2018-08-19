@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Items {
-  List<String> recyclableItems = [
+  var recyclableItems = [
     "Paper",
     "Wrapping Paper - Not the shiny plastic sort",
     "Newspapers",

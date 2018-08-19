@@ -1,15 +1,11 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:login/UI/add_item_page.dart';
-import 'package:login/Utils/user.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'explore_page.dart';
-
+import 'package:login/Utils/globals.dart' as globals;
 import 'package:login/Utils/items.dart';
-
-//void main() => runApp(ExpansionTileSample());
 
 class HomePage extends StatelessWidget {
   static String tag = 'HomePage';
@@ -26,32 +22,8 @@ class HomePage extends StatelessWidget {
         child: MaterialButton(
           minWidth: 300.0,
           height: 42.0,
-          onPressed: () async {
-            var databasesPath = await getDatabasesPath();
-            var path = join(databasesPath, "demo_asset_example.db");
-
-            // try opening (will work if it exists)
-            Database db;
-            try {
-              db = await openDatabase(path, readOnly: false);
-              print("Login Opening database");
-            } catch (e) {
-              print("Error $e");
-            }
-
-            // // Update some record
-            // int count = await db.rawUpdate(
-            //     'UPDATE Users SET POINTS = ? WHERE userid = ?', ["10", "1"]);
-            // print(count);
-
-            List<Map> res =
-                await db.rawQuery('SELECT points FROM Users WHERE userid="1"');
-
-            print(res);
-
-            await db.close();
-
-            //Navigator.of(context).pushNamed(CameraApp.tag);
+          onPressed: () {
+            Navigator.of(context).pushReplacementNamed(CameraApp.tag);
           },
           color: Colors.green,
           child: Text('Add Item',
@@ -68,7 +40,7 @@ class HomePage extends StatelessWidget {
           Row(
             children: <Widget>[
               Text(
-                "0",
+                "4",
                 textScaleFactor: 1.4,
                 style: TextStyle(fontSize: 65.0, color: Colors.white),
               ),
@@ -95,7 +67,7 @@ class HomePage extends StatelessWidget {
           Row(
             children: <Widget>[
               Text(
-                "0",
+                globals.getUserPoints(),
                 textScaleFactor: 1.4,
                 style: TextStyle(fontSize: 65.0, color: Colors.white),
               ),
@@ -117,13 +89,12 @@ class HomePage extends StatelessWidget {
 
     final itemRecycled = new Container(
       child: Column(
-        //mainAxisAlignment: VerticalDirection.up,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
             children: <Widget>[
               Text(
-                "0",
+                globals.getUserItems(),
                 textScaleFactor: 1.4,
                 style: TextStyle(fontSize: 65.0, color: Colors.white),
               ),
@@ -150,19 +121,19 @@ class HomePage extends StatelessWidget {
           Row(
             children: <Widget>[
               Text(
-                "0",
+                "1",
                 textScaleFactor: 1.4,
                 style: TextStyle(fontSize: 65.0, color: Colors.white),
               ),
               Text(
-                "Out of 0",
+                "Out of 1",
                 textScaleFactor: 1.4,
                 style: TextStyle(fontSize: 15.0, color: Colors.white),
               ),
             ],
           ),
           Text(
-            "Position in Household",
+            globals.groupLabel(),
             textScaleFactor: 1.4,
             style: TextStyle(fontSize: 15.0, color: Colors.white),
           )

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:login/UI/group_page.dart';
 import 'package:login/UI/home_page.dart';
 import 'package:login/UI/recycle_item_list.dart';
 import 'package:login/UI/recycling_labels_page.dart';
 import 'package:login/UI/notifications_page.dart';
+import 'package:login/UI/group_settings.dart';
+import 'package:login/Utils/globals.dart' as globals;
 
 class ExplorePage extends StatelessWidget {
   static String tag = 'ExplorePage';
@@ -26,7 +29,6 @@ class ExplorePage extends StatelessWidget {
               },
             ),
             IconButton(
-              color: Colors.white70,
               icon: Icon(Icons.explore),
               onPressed: () {},
             )
@@ -84,6 +86,15 @@ class ExplorePage extends StatelessWidget {
                   "Get notified to changes to waste collection in your area"),
             ),
             ListTile(
+              onTap: () {
+                if (globals.userCreatedGroup == false) {
+                  Navigator.of(context).pushReplacementNamed(GroupPage.tag);
+                } else {
+                  Navigator
+                      .of(context)
+                      .pushReplacementNamed(GroupSettingsPage.tag);
+                }
+              },
               contentPadding: EdgeInsets.only(left: 20.0),
               title: Text(
                 'Recycling Group',
