@@ -37,13 +37,58 @@ class GroupSettingsPage extends StatelessWidget {
         child: new Column(
           children: <Widget>[
             new Container(
-              padding: EdgeInsets.all(20.0),
+              color: Colors.grey[600],
+              height: 200.0,
+              alignment: AlignmentDirectional.center,
+              child: Icon(
+                Icons.add_a_photo,
+                color: Colors.white,
+                size: 60.0,
+              ),
+            ),
+            new Container(
+              padding: EdgeInsets.all(15.0),
               alignment: AlignmentDirectional.center,
               color: Color(0xFF3A3A3A),
               width: 500.0,
+              child: new Column(
+                children: <Widget>[
+                  new Text(
+                    "The",
+                    style: new TextStyle(fontSize: 15.0, color: Colors.green),
+                  ),
+                  new Text(
+                    globals.getGroupName(),
+                    style: new TextStyle(fontSize: 30.0, color: Colors.green),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(
+                60.0,
+                150.0,
+                60.0,
+                0.0,
+              ),
+              child: new Container(
+                height: 3.0,
+                decoration: BoxDecoration(color: Colors.white),
+              ),
+            ),
+            new Container(
+              padding: EdgeInsets.fromLTRB(
+                20.0,
+                40.0,
+                0.0,
+                0.0,
+              ),
+              alignment: AlignmentDirectional.centerStart,
               child: new Text(
-                globals.getGroupName(),
-                style: new TextStyle(fontSize: 30.0, color: Colors.green),
+                "Members",
+                style: new TextStyle(
+                  color: Colors.white,
+                ),
               ),
             ),
           ],
