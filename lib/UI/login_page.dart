@@ -91,8 +91,14 @@ class LoginPage extends StatelessWidget {
             // List<Map> list = await db.rawQuery('SELECT * FROM Users');
             // print(list);
             List<Map> list2 = await db.rawQuery(
-                'SELECT * FROM Users WHERE username = "$userName" AND password = "$userPass"');
+                'SELECT * FROM Users WHERE username = "Test" AND password = "password"');
             print(list2);
+
+            var list3 = await db.rawQuery(
+                'SELECT points FROM Users WHERE username = "Test" AND password = "password"');
+            print(list3[0]["points"]);
+
+            print(list3);
 
             if (list2.length == 1) {
               Navigator.of(context).pushReplacementNamed(HomePage.tag);

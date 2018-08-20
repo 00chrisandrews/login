@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login/UI/explore_page.dart';
+import 'package:login/UI/group_settings.dart';
 import 'package:login/UI/home_page.dart';
 import 'package:login/Utils/contacts.dart';
 import 'package:login/Utils/globals.dart' as globals;
@@ -112,6 +113,9 @@ class GroupPage extends StatelessWidget {
                   if (groupName != null) {
                     globals.setGroupName(groupName);
                     globals.setUserCreatedGroup(true);
+                    Navigator
+                        .of(context)
+                        .pushReplacementNamed(GroupSettingsPage.tag);
                   } else {
                     print("Must enter a group name in order to create a group");
                   }

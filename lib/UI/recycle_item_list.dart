@@ -24,7 +24,7 @@ class RecyleItemsPage extends StatelessWidget {
       home: DefaultTabController(
         length: 3,
         child: Scaffold(
-          appBar: new AppBar(
+          appBar: new AppBar(           
             bottom: TabBar(
               unselectedLabelColor: Colors.white70,
               labelColor: Colors.white,
