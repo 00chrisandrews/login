@@ -1,14 +1,12 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
-import 'home_page.dart';
 import 'login_page.dart';
-import 'package:login/Utils/onboard_assets.dart';
+import 'package:login/Utils/dbhelper.dart';
 
 class WelcomePage extends StatelessWidget {
   static String tag = 'WelcomePage';
+
+  final dbHelper = new DBHelper();
 
   static final TextEditingController createUser = new TextEditingController();
   static final TextEditingController createPass = new TextEditingController();
@@ -57,6 +55,7 @@ class WelcomePage extends StatelessWidget {
     );
 
     final confirmPassword = TextField(
+      controller: confirmPass,
       autofocus: false,
       style: new TextStyle(color: Colors.black),
       obscureText: true,
@@ -80,32 +79,13 @@ class WelcomePage extends StatelessWidget {
           minWidth: 200.0,
           height: 42.0,
           onPressed: () async {
-            if (userName != null &&
-                userPass != null &&
-                userConfrimPass != null) {
+            if (userName != "" && userPass != "" && userConfrimPass != "") {
               if (userPass == userConfrimPass) {
-                var databasesPath = await getDatabasesPath();
-                var path = join(databasesPath, "demo_asset_example.db");
-
-                // try opening (will work if it exists)
-                Database db;
-                try {
-                  db = await openDatabase(path, readOnly: false);
-                  print("Create Account is Opening database");
-                } catch (e) {
-                  print("Error $e");
-                }
-
-                //Insert some records in a transaction;
-                await db.transaction((txn) async {
-                  int id1 = await txn.rawInsert(
-                      'INSERT INTO Users(username, password) VALUES("$userName", "$userPass")');
-                  print("inserted1: $id1");
-                });
-
-                // Close the database
-                await db.close();
-
+                //Add user to database
+                dbHelper.addUserToDB(userName, userPass);
+                //Dismiss Keyboard
+                FocusScope.of(context).requestFocus(new FocusNode());
+                //Go to login page
                 Navigator.of(context).pushReplacementNamed(LoginPage.tag);
               } else {
                 print("Passwords do no match");

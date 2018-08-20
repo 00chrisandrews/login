@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
+
 import 'package:login/UI/explore_page.dart';
 import 'package:login/UI/home_page.dart';
 import 'package:login/UI/select_item_page.dart';
-
-import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
 
 List<CameraDescription> cameras;
 

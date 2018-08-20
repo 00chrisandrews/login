@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:login/UI/explore_page.dart';
 import 'package:login/UI/group_settings.dart';
 import 'package:login/UI/home_page.dart';
 import 'package:login/Utils/contacts.dart';
 import 'package:login/Utils/globals.dart' as globals;
+
+import 'package:flutter/material.dart';
 
 class GroupPage extends StatelessWidget {
   static String tag = 'GroupPage';

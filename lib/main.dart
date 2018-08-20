@@ -10,40 +10,45 @@ import 'UI/select_item_page.dart';
 import 'UI/group_page.dart';
 import 'UI/group_settings.dart';
 
+import 'Utils/dbhelper.dart';
+
 import 'package:camera/camera.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
+// import 'package:path/path.dart';
+// import 'package:sqflite/sqflite.dart';
 
 Future<Null> main() async {
   cameras = await availableCameras();
   runApp(new MyApp());
 
-  var databasesPath = await getDatabasesPath();
-  var path = join(databasesPath, "demo_asset_example.db");
+  var dbHelp = new DBHelper();
+  dbHelp.initializeUserDB();
 
-  // Delete the database
-  await deleteDatabase(path);
+  // var databasesPath = await getDatabasesPath();
+  // var path = join(databasesPath, "demo_asset_example.db");
 
-  Database db;
-  try {
-    db = await openDatabase(path, readOnly: false);
-    print("Login Opening database");
-  } catch (e) {
-    print("Error $e");
-  }
+  // // Delete the database
+  // await deleteDatabase(path);
 
-  await db.execute(
-      "CREATE TABLE Users (userid INTEGER PRIMARY KEY, username TEXT, password TEXT, points INTEGER)");
+  // Database db;
+  // try {
+  //   db = await openDatabase(path, readOnly: false);
+  //   print("Login Opening database");
+  // } catch (e) {
+  //   print("Error $e");
+  // }
 
-  await db.transaction((txn) async {
-    int id1 = await txn.rawInsert(
-        'INSERT INTO Users(username, password, points) VALUES("Test", "password", 0)');
-    print("inserted1: $id1");
-  });
+  // await db.execute(
+  //     "CREATE TABLE Users (userid INTEGER PRIMARY KEY, username TEXT, password TEXT, points INTEGER)");
 
-  await db.close();
+  // await db.transaction((txn) async {
+  //   int id1 = await txn.rawInsert(
+  //       'INSERT INTO Users(username, password, points) VALUES("Test", "password", 0)');
+  //   print("inserted1: $id1");
+  // });
+
+  // await db.close();
 }
 
 class MyApp extends StatelessWidget {
